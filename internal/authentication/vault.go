@@ -8,14 +8,14 @@ import (
 
 type VaultAuthenticationHandler struct {
 	config internal.Configuration
-	users map[string]User
+	users  map[string]User
 }
 
 func fetchUsers() map[string]User {
 	userMap := make(map[string]User)
 	users := internal.GetUsers()
 
-	for user, _ := range users {
+	for user := range users {
 		userMap[user] = User{
 			Username: user,
 			Password: fmt.Sprintf("%s", users[user]),

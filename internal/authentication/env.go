@@ -9,7 +9,7 @@ import (
 
 type EnvironmentAuthenticationHandler struct {
 	config internal.Configuration
-	users map[string]User
+	users  map[string]User
 }
 
 func NewEnvironmentAuthenticationHandler(configuration internal.Configuration) EnvironmentAuthenticationHandler {

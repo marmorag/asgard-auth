@@ -3,9 +3,10 @@ package internal
 import "os"
 
 type AuthMode string
+
 const (
 	EnvironmentAuthMode = "env"
-	VaultAuthMode = "vault"
+	VaultAuthMode       = "vault"
 )
 
 type Configuration struct {
