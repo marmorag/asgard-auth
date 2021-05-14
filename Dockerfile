@@ -12,4 +12,4 @@ WORKDIR /srv/app
 COPY --from=build /srv/app/asgard-auth asgard-auth
 
 EXPOSE 3000
-CMD ["asgard-auth"]
+CMD ["/srv/app/asgard-auth"]
