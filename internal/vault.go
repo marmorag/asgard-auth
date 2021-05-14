@@ -3,7 +3,6 @@ package internal
 import (
 	"fmt"
 	vault "github.com/hashicorp/vault/api"
-	"os"
 )
 
 var vaultClient *vault.Client
@@ -15,7 +14,7 @@ func init() {
 	}
 
 	vaultConfig := vault.DefaultConfig()
-	vaultConfig.Address = os.Getenv("VAULT_ADDR")
+	vaultConfig.Address = appConfig.VaultAddress
 
 	var err error
 	vaultClient, err = vault.NewClient(vaultConfig)
@@ -25,7 +24,7 @@ func init() {
 		return
 	}
 
-	vaultClient.SetToken(os.Getenv("VAULT_TOKEN"))
+	vaultClient.SetToken(appConfig.VaultToken)
 }
 
 func GetClient() *vault.Client {

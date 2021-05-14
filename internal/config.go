@@ -13,6 +13,9 @@ type Configuration struct {
 	AuthenticationMode AuthMode
 
 	EnvironmentAuthString string
+
+	VaultAddress string
+	VaultToken string
 }
 
 var config Configuration
@@ -31,6 +34,7 @@ func init() {
 	}
 
 	if config.AuthenticationMode == VaultAuthMode {
-		// init config for Vault
+		config.VaultAddress = os.Getenv("VAULT_ADDR")
+		config.VaultToken = os.Getenv("VAULT_TOKEN")
 	}
 }
