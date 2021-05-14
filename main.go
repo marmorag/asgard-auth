@@ -1,8 +1,7 @@
 package main
 
-import "github.com/spf13/cobra"
-
+import "marmorag/asgard-auth/cmd"
 
 func main() {
-
+	cmd.Execute()
 }
