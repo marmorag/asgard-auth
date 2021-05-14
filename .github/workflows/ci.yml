@@ -29,9 +29,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
 
-      - run: go mod download
+      - run: |
+          gofmt -s -w **/*.go
 
       - run: |
           export PATH=$PATH:`go env GOPATH`/bin
-          gofmt -s -w **/*.go
+          go get -u honnef.co/go/tools/cmd/staticcheck
           staticcheck ./...
